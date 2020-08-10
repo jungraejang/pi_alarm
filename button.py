@@ -1,5 +1,12 @@
 import RPi.GPIO as GPIO
 
+import pygame
+pygame.mixer.init()
+pygame.mixer.music.load("thevalkyrie.mp3")
+pygame.mixer.music.play()
+while pygame.mixer.music.get_busy() == True:
+    continue
+
 def button_callback(channel):
     print("Button was pushed")
 

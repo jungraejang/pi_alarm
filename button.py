@@ -6,6 +6,10 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
+pygame.mixer.init()
+pygame.mixer.music.load("thevalkyrie.mp3")
+pygame.mixer.music.play()
+
 def button_callback(channel):
     print()
     print("Button was pushed")
@@ -19,8 +23,6 @@ GPIO.cleanup()
 
 
 
-pygame.mixer.init()
-pygame.mixer.music.load("thevalkyrie.mp3")
-pygame.mixer.music.play()
-while pygame.mixer.music.get_busy() == True:
-    continue
+
+# while pygame.mixer.music.get_busy() == True:
+#     continue

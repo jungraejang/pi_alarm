@@ -10,7 +10,7 @@ GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 pygame.mixer.init()
 pygame.mixer.music.load("thevalkyrie.mp3")
 
-def alarm(t):
+def alarm():
     print("alarm triggered")
 
     pygame.mixer.music.play()
@@ -26,7 +26,7 @@ def alarm(t):
     GPIO.cleanup()
 
 # schedule.every().day.at("21:18").do(alarm,'It is 01:00')
-schedule.every(5).minutes.do(alarm)
+schedule.every(1).minutes.do(alarm)
 
 while True:
     schedule.run_pending()

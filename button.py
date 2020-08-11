@@ -12,6 +12,7 @@ pygame.mixer.music.load("thevalkyrie.mp3")
 
 def alarm(t):
     print("alarm triggered")
+
     pygame.mixer.music.play()
 
     def button_callback(channel):
@@ -24,4 +25,8 @@ def alarm(t):
 
     GPIO.cleanup()
 
-schedule.every().day.at("20:57").do(alarm,'It is 01:00')
+schedule.every().day.at("21:00").do(alarm,'It is 01:00')
+
+while True:
+    schedule.run_pending()
+    time.sleep(60) # wait one minute

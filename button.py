@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import pygame
-import schedule
+import schedule from schedule
 import time
 
 def alarm(t):

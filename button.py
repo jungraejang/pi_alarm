@@ -4,6 +4,7 @@ import schedule
 import time
 
 def alarm(t):
+    print("alarm triggered")
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -23,7 +24,7 @@ def alarm(t):
 
     GPIO.cleanup()
 
-schedule.every().day.at("20:48").do(alarm,'It is 01:00')
+schedule.every().day.at("20:52").do(alarm,'It is 01:00')
 
 while True:
     schedule.run_pending()

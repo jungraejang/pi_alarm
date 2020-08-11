@@ -3,15 +3,15 @@ import pygame
 import schedule
 import time
 
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+pygame.mixer.init()
+pygame.mixer.music.load("thevalkyrie.mp3")
+
 def alarm(t):
     print("alarm triggered")
-    GPIO.setwarnings(False)
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
-
-    pygame.mixer.init()
-    pygame.mixer.music.load("thevalkyrie.mp3")
     pygame.mixer.music.play()
 
     def button_callback(channel):
@@ -24,8 +24,4 @@ def alarm(t):
 
     GPIO.cleanup()
 
-schedule.every().day.at("20:52").do(alarm,'It is 01:00')
-
-while True:
-    schedule.run_pending()
-    time.sleep(60) # wait one minute
+schedule.every().day.at("20:57").do(alarm,'It is 01:00')

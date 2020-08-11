@@ -25,7 +25,7 @@ def alarm(t):
 
     GPIO.cleanup()
 
-schedule.every().day.at("21:00").do(alarm,'It is 01:00')
+schedule.every().day.at("21:03").do(alarm,'It is 01:00')
 
 while True:
     schedule.run_pending()
